@@ -1,18 +1,48 @@
-/*truco para uniformidad de texto entre navegadores*/
-html{
-    font-size:62.5%; ;
+:root{
+    --blanco:#ffffff;
+    --oscuro:#212121;
+    --primario:#ffc107;
+    --secundario:#0097a7;
+    --gris:#757575;
+
 }
-body
-{
-    font: size 16px;
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 16px;
 }
 
 .titulo{
     text-align: center;
-    font-size: 3.8rem;
-
+    font-size: 3.8rem ;
 }
 .titulo span{
     font-size: 2rem;
-    
+}
+.navegador-principal {
+background-color: var(--secundario);
+display: flex; /*Alinea elementos*/
+/*Propiedad de flex: justify-content para FILAS/aling_items es para COLUNNAS (flex-direction)*/
+justify-content: space-between;
+font-weight: bold;
+font-size: 2rem;
+}
+/*Al poner el cursor en el hipervinculo*/
+.navegador-principal a:hover{
+    background-color: var(--primario);
+    color: #212121;
+}
+.navegador-principal a{
+    color: #ffffff;
+    text-decoration: none; /*remueve el estilo subrayado en el texto*/
+    padding: 1rem;
+}
+
+.contenedor{
+    width: 120rem;/*1200 pixeles porque 1 rem = 10px */
+    margin: 0 auto;
+}
+.nav-bg{
+background-color: var(--secundario);
 }
