@@ -13,6 +13,26 @@ body{
     font-size: 16px;
 }
 
+/*----->MEDIA QUERYS<-----------*/
+/*Se aplica desde 0px*/
+body{
+    background-color: bisque;
+}
+/*Recomendado
+480px para móviles
+768px para tablets*/
+
+@media (min-width:480px){
+    body{
+    background-color:blue;
+    }
+}
+@media (min-width:768px){
+    body{
+    background-color:cornflowerblue;
+    }
+}
+
 .titulo{
     text-align: center;
     font-size: 3.8rem ;
@@ -27,7 +47,15 @@ display: flex; /*Alinea elementos*/
 justify-content: space-between;
 font-weight: bold;
 font-size: 2rem;
+align-items: center;
+flex-direction: column;
 }
+@media(min-width: px){
+    .navegador-principal{
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+   }
 /*Al poner el cursor en el hipervinculo*/
 .navegador-principal a:hover{
     background-color: var(--primario);
@@ -40,9 +68,14 @@ font-size: 2rem;
 }
 
 .contenedor{
-    width: 120rem;/*1200 pixeles porque 1 rem = 10px */
+    max-width: 120rem;/*1200 pixeles porque 1 rem = 10px */
     margin: 0 auto;
 }
 .nav-bg{
 background-color: var(--secundario);
+}
+.hero{
+    background-image: url(../img/hero.jpg); /*../ es para regresar un nivel de directorio ya que la carpeta "img" esta afuera de "CSS"*/
+    background-repeat: no-repeat; /*Sirve para evitar la repetcion de imagen */
+    background-size: cover;
 }
