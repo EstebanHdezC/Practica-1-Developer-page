@@ -1,81 +1,193 @@
-:root{
-    --blanco:#ffffff;
-    --oscuro:#212121;
-    --primario:#ffc107;
-    --secundario:#0097a7;
-    --gris:#757575;
+/* parecido a declarar variables globales en java  */
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #26939f;
+    --gris: #757575;
+    --gris_claro: #b6b6b6 /* Se agrego b6b6b6b6 */
 
 }
-html{
+
+/* llama a un elemento o etiqueta de HTML */
+html {
     font-size: 62.5%;
 }
-body{
+
+body {
     font-size: 16px;
+    font-family: 'krub', sans-serif;
+    background: linear-gradient(to top, var(--gris_claro) 0%, var(--blanco) 100%);
 }
 
-/*----->MEDIA QUERYS<-----------*/
-/*Se aplica desde 0px*/
-body{
+/* Se aplica desde 0 pixeles */
+/*body {
     background-color: bisque;
-}
-/*Recomendado
-480px para móviles
-768px para tablets*/
+} */
 
-@media (min-width:480px){
-    body{
-    background-color:blue;
+/* Recomendado 
+480 para moviles
+768 para tables
+*/
+
+/*@media (min-width: 480px) {
+    body {
+        /* background-color: ; 
     }
 }
-@media (min-width:768px){
-    body{
-    background-color:cornflowerblue;
+
+/*@media (min-width: 768px) {
+    body {
+        background-color: cornflowerblue;
     }
-}
+} */
+
+
+
+/* Comentatios*/
+/* Hace referencia a las clases*/
 
 .titulo{
     text-align: center;
-    font-size: 3.8rem ;
+    font-size: 3.8rem;
+
 }
-.titulo span{
+
+/* Editar espeificamente la palabra delevoper*/
+.titulo span {
     font-size: 2rem;
 }
-.navegador-principal {
-background-color: var(--secundario);
-display: flex; /*Alinea elementos*/
-/*Propiedad de flex: justify-content para FILAS/aling_items es para COLUNNAS (flex-direction)*/
-justify-content: space-between;
-font-weight: bold;
-font-size: 2rem;
-align-items: center;
-flex-direction: column;
+
+.navegacion-principal    {
+    /*background-color: var(--secundario);
+    /* margen es por fuera y padding es por dentro */
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
+   /* padding: 1rem; */
+    display: flex; /* Flexbox esta diseniado para alinear elementos en tus disenio */
+    /* justify-content para FILAS / aling-items es para COLUMNAS (flex-direction) */
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 2rem;
+    flex-direction: column;
+    align-items: center;
 }
-@media(min-width: px){
-    .navegador-principal{
-      flex-direction: row;
-      justify-content: flex-start;
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row; /* alinear en filas */
+        justify-content: space-between;
+
     }
-   }
-/*Al poner el cursor en el hipervinculo*/
-.navegador-principal a:hover{
-    background-color: var(--primario);
-    color: #212121;
 }
-.navegador-principal a{
-    color: #ffffff;
-    text-decoration: none; /*remueve el estilo subrayado en el texto*/
+
+
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none; /*remueve el estilo subrayado en el texto */
     padding: 1rem;
 }
 
-.contenedor{
-    max-width: 120rem;/*1200 pixeles porque 1 rem = 10px */
+
+/* Al poner el cursos en el hipervinculo*/
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+} 
+
+.contenedor {
+    max-width: 120rem; /* 1200 pixeles porque 1 rem = 10 px. Unidad de medida*/
+    /* margin-top: 0
+    margin-bottom: 0
+    margin-right: 0
+    margin-lefth:0*/
     margin: 0 auto;
 }
-.nav-bg{
-background-color: var(--secundario);
+
+.nav-bg {
+    background-color: var(--secundario);
 }
-.hero{
-    background-image: url(../img/hero.jpg); /*../ es para regresar un nivel de directorio ya que la carpeta "img" esta afuera de "CSS"*/
-    background-repeat: no-repeat; /*Sirve para evitar la repetcion de imagen */
-    background-size: cover;
+
+.hero {
+    background-image: url(../img/hero.jpg); /* ../ es para regresar un nivl del directorio ya que la carpeta img esta afuera de css */
+    background-repeat: no-repeat; /* Sirve para evitar la repeticion de la imagen cuamd es pequenio*/
+    background-size: cover; /* Sirve para cubrir la imagen con todo el tamanio posible */
+    height: 450px;
+    position: relative;
+
+
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7); /* */
+    width: 100%;
+    height: 100%;
+    /* Alinear el texto vertical y horinzontalmente */
+    display: flex; /* Ayuda a disponer a todos los elementos */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:var(--blanco); /* Mejor usar una varibale antes*/
+
+}
+
+/* En el padre la position debe ser relative y el hijo en este caso .contenido-hero debe se position
+/* absolute */
+
+.contenido-hero p,
+.contenido-hero h2 {
+    color: var(--blanco);
+}
+
+/*Tipografia*/
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+.titulo-span{
+    font-size: 2rem;
+}
+.boton {
+    display: inline-block;
+    background-color: var(--secundario); /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 10px 40px; /* Espaciado interno del botón */
+    text-decoration: none; /* Quitar el subrayado */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Animación al hacer hover */
+    font-size: 2rem;
+    width: 90%;
+    text-align: center;
+}
+@media(min-width:768px){
+    .boton{
+        width: auto;
+    }
+}
+
+.boton:hover {
+    background-color: #e0a800; /* Color de fondo al pasar el mouse */
+    color: black; /* Cambiar color de texto al pasar el mouse */
+}
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 45px;
+}
+.ubicacion p{
+    margin: 0;
+    font-size: 18px;
+
+
 }
